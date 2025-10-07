@@ -4,6 +4,7 @@
     --primary: #2e5c3e;
     --secondary: #8b7355;
     --accent: #d4af37;
+    --accent-2: #8b3a3a; /* Burgundy/wine red for sophistication */
     --bg-dark: #1a1a1a;
     --bg-mid: #2a2a2a;
     --bg-light: #f5f5dc;
@@ -1163,3 +1164,131 @@ a:hover {
 .nav-links a.active::after {
     width: 100%;
 }
+
+/* Photography Section */
+#photography {
+    background: var(--bg-mid);
+}
+
+#photography .section-title .title-bracket {
+    color: var(--accent-2);
+}
+
+.photography-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.photography-intro .lead-text {
+    font-size: 1.1em;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.photography-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.photo-item {
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(139, 58, 58, 0.3);
+}
+
+.photo-placeholder {
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.photo-item:hover .photo-placeholder {
+    transform: scale(1.05);
+}
+
+.photo-caption h4 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+}
+
+/* Products Section */
+#products .section-title {
+    position: relative;
+}
+
+.product-number {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.5em;
+    color: var(--accent);
+    margin-bottom: 20px;
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-number {
+    opacity: 0.6;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.product-card {
+    padding: 40px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border: 1px solid var(--border);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-2);
+}
+
+.product-card h3 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1em;
+}
+
+.product-card ul li {
+    transition: color 0.3s ease;
+}
+
+.product-card:hover ul li {
+    color: var(--text) !important;
+}
+
+@media (max-width: 768px) {
+    .photography-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .photo-placeholder {
+        height: 250px !important;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .product-card {
+        padding: 30px 20px;
+    }
+    
+    .product-number {
+        font-size: 2em;
+    }
+}
+
