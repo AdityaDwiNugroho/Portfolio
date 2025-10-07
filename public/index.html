@@ -19,7 +19,12 @@
             <div class="logo">
                 <span class="pixel-text">ADN.exe</span>
             </div>
-            <ul class="nav-links">
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -208,7 +213,7 @@
 
             <div class="photography-intro">
                 <p class="lead-text">Capturing moments through the lens. Professional stock photography available on Shutterstock.</p>
-                <a href="https://www.shutterstock.com/g/YOUR_USERNAME" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-block; margin: 20px 0;">
+                <a href="https://www.shutterstock.com/g/itsThousandth" target="_blank" rel="noopener" class="btn btn-primary" style="display: inline-block; margin: 20px 0;">
                     View My Shutterstock Portfolio
                 </a>
             </div>
@@ -465,6 +470,23 @@
             cursorRing.style.width = '40px';
             cursorRing.style.height = '40px';
             cursorDot.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close menu when link clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
         });
     </script>
 </body>

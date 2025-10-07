@@ -1047,11 +1047,7 @@ a:hover {
     }
 
     .hero-image-block {
-        grid-column: 1;
-        grid-row: 2;
-        margin-top: 0;
-        max-width: 400px;
-        margin: 0 auto;
+        display: none;
     }
 
     .hero-actions {
@@ -1159,6 +1155,85 @@ a:hover {
 /* Active nav link */
 .nav-links a.active {
     color: var(--accent);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.hamburger .line {
+    width: 25px;
+    height: 2px;
+    background: var(--accent);
+    transition: all 0.3s ease;
+}
+
+.hamburger.active .line:nth-child(1) {
+    transform: rotate(45deg) translateY(7px);
+}
+
+.hamburger.active .line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active .line:nth-child(3) {
+    transform: rotate(-45deg) translateY(-7px);
+}
+
+/* Mobile Navbar */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 60px;
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - 60px);
+        background: rgba(26, 26, 26, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        gap: 0;
+        padding: 40px 20px;
+        border-left: 1px solid var(--border);
+        transition: right 0.4s ease;
+        overflow-y: auto;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 20px 15px;
+        font-size: 1.1em;
+        font-family: 'Press Start 2P', cursive;
+        font-size: 0.7em;
+    }
+    
+    .nav-links a::after {
+        display: none;
+    }
+    
+    .nav-links a:hover {
+        background: rgba(212, 175, 55, 0.1);
+        padding-left: 25px;
+    }
 }
 
 .nav-links a.active::after {
