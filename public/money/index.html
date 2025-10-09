@@ -275,11 +275,305 @@
         .stat-card.income .stat-amount { color: var(--success); }
         .stat-card.expense .stat-amount { color: var(--danger); }
 
-        .add-section, .transactions-section {
+        /* Analytics Section */
+        .analytics-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .analytics-card {
+            background: var(--bg-mid);
+            border: 2px solid var(--border);
+            padding: 30px;
+            position: relative;
+        }
+
+        .analytics-card h3 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8em;
+            color: var(--accent);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 300px;
+            display: flex;
+            align-items: flex-end;
+            gap: 15px;
+            padding: 20px 0;
+        }
+
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 30px;
+            height: 100%;
+            width: 100%;
+            justify-content: space-around;
+        }
+
+        .bar-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .bar {
+            width: 60px;
+            background: var(--accent);
+            position: relative;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            min-height: 20px;
+        }
+
+        .bar.income-bar {
+            background: transparent;
+            border-color: var(--success);
+        }
+
+        .bar.expense-bar {
+            background: transparent;
+            border-color: var(--danger);
+        }
+
+        .bar::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+        }
+
+        .bar.income-bar::before { background: var(--success); }
+        .bar.expense-bar::before { background: var(--danger); }
+
+        .bar:hover {
+            opacity: 0.8;
+            transform: translateY(-5px);
+        }
+
+        .bar-label {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6em;
+            color: var(--text);
+            opacity: 0.7;
+        }
+
+        .bar-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7em;
+            color: var(--accent);
+            margin-top: 5px;
+        }
+
+        /* Pie Chart */
+        .pie-chart {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            height: 100%;
+        }
+
+        .pie-visual {
+            position: relative;
+            width: 200px;
+            height: 200px;
+        }
+
+        .pie-slice {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%, 50% 0%);
+        }
+
+        .pie-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: var(--bg-mid);
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .pie-center-label {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.5em;
+            color: var(--text);
+            opacity: 0.7;
+        }
+
+        .pie-center-value {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9em;
+            color: var(--accent);
+            margin-top: 5px;
+        }
+
+        .pie-legend {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border: 2px solid;
+            position: relative;
+        }
+
+        .legend-color::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.3;
+        }
+
+        .legend-color.income-color {
+            border-color: var(--success);
+        }
+
+        .legend-color.income-color::before {
+            background: var(--success);
+        }
+
+        .legend-color.expense-color {
+            border-color: var(--danger);
+        }
+
+        .legend-color.expense-color::before {
+            background: var(--danger);
+        }
+
+        .legend-text {
+            flex: 1;
+        }
+
+        .legend-label {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6em;
+            color: var(--text);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .legend-value {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9em;
+            color: var(--accent);
+        }
+
+        .legend-percentage {
+            font-size: 0.8em;
+            opacity: 0.7;
+            margin-left: 8px;
+        }
+
+        /* Category Breakdown */
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            background: var(--bg-dark);
+            border: 2px solid var(--border);
+            transition: border-color 0.3s;
+        }
+
+        .category-item:hover {
+            border-color: var(--accent);
+        }
+
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.6em;
+            color: var(--accent);
+        }
+
+        .category-details {
+            flex: 1;
+        }
+
+        .category-name {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.7em;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .category-bar {
+            width: 100%;
+            height: 10px;
+            background: var(--bg-mid);
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-bar-fill {
+            height: 100%;
+            background: var(--accent);
+            transition: width 0.5s ease;
+            opacity: 0.5;
+        }
+
+        .category-amount {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.9em;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        .add-section, .transactions-section, .analytics-section {
             background: var(--bg-mid);
             border: 2px solid var(--border);
             padding: 30px;
             margin-bottom: 40px;
+        }
+
+        .analytics-section {
+            background: transparent;
+            border: none;
+            padding: 0;
         }
 
         .add-section h2, .transactions-section h2 {
@@ -339,16 +633,35 @@
             border: 2px solid;
             font-family: 'Press Start 2P', cursive;
             font-size: 0.6em;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .transaction-type::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.15;
         }
 
         .transaction-type.income {
             border-color: var(--success);
             color: var(--success);
+            box-shadow: 0 0 10px rgba(46, 92, 62, 0.3);
+        }
+
+        .transaction-type.income::before {
+            background: var(--success);
         }
 
         .transaction-type.expense {
             border-color: var(--danger);
             color: var(--danger);
+            box-shadow: 0 0 10px rgba(139, 58, 58, 0.3);
+        }
+
+        .transaction-type.expense::before {
+            background: var(--danger);
         }
 
         .transaction-details {
@@ -375,16 +688,35 @@
             font-size: 0.6em;
             padding: 5px 10px;
             border: 1px solid;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .badge::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0.1;
         }
 
         .badge.public {
             color: var(--success);
             border-color: var(--success);
+            background: rgba(46, 92, 62, 0.1);
+        }
+
+        .badge.public::before {
+            background: var(--success);
         }
 
         .badge.private {
             color: var(--danger);
             border-color: var(--danger);
+            background: rgba(139, 58, 58, 0.1);
+        }
+
+        .badge.private::before {
+            background: var(--danger);
         }
 
         .transaction-amount {
@@ -419,20 +751,57 @@
         }
 
         @media (max-width: 768px) {
+            .analytics-section {
+                grid-template-columns: 1fr;
+            }
+
+            .pie-chart {
+                flex-direction: column;
+            }
+
+            .pie-visual {
+                width: 150px;
+                height: 150px;
+            }
+
+            .pie-center {
+                width: 90px;
+                height: 90px;
+            }
+
+            .pie-center-value {
+                font-size: 0.7em;
+            }
+
             .transaction-item {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
+
             .transaction-type {
                 width: 100%;
                 height: 50px;
             }
+
             .transaction-actions {
                 width: 100%;
                 flex-direction: column;
             }
+
             .btn-small {
                 width: 100%;
+            }
+
+            .header h1 {
+                font-size: 1.5em;
+            }
+
+            .stat-card {
+                padding: 20px;
+            }
+
+            .stat-amount {
+                font-size: 1.4em;
             }
         }
     </style>
@@ -481,6 +850,53 @@
                 <div class="stat-card expense">
                     <div class="stat-label">Total Expense</div>
                     <div class="stat-amount" id="totalExpense">Rp 0</div>
+                </div>
+            </div>
+
+            <!-- Analytics Visualizations -->
+            <div class="analytics-section">
+                <div class="analytics-card">
+                    <h3>Income vs Expense</h3>
+                    <div class="pie-chart">
+                        <div class="pie-visual" id="pieChart">
+                            <div class="pie-center">
+                                <div class="pie-center-label">Total</div>
+                                <div class="pie-center-value" id="pieCenterValue">Rp 0</div>
+                            </div>
+                        </div>
+                        <div class="pie-legend">
+                            <div class="legend-item">
+                                <div class="legend-color income-color"></div>
+                                <div class="legend-text">
+                                    <span class="legend-label">Income</span>
+                                    <div class="legend-value">
+                                        <span id="legendIncome">Rp 0</span>
+                                        <span class="legend-percentage" id="legendIncomePercent">(0%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color expense-color"></div>
+                                <div class="legend-text">
+                                    <span class="legend-label">Expense</span>
+                                    <div class="legend-value">
+                                        <span id="legendExpense">Rp 0</span>
+                                        <span class="legend-percentage" id="legendExpensePercent">(0%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="analytics-card">
+                    <h3>Top Categories</h3>
+                    <div class="category-list" id="categoryList">
+                        <div class="empty-state" style="padding: 40px 20px;">
+                            <div class="empty-state-icon">[$$]</div>
+                            <div class="empty-state-text">No data yet</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -645,6 +1061,72 @@
             document.getElementById('currentBalance').textContent = formatCurrency(balance);
             document.getElementById('totalIncome').textContent = formatCurrency(totalIncome);
             document.getElementById('totalExpense').textContent = formatCurrency(totalExpense);
+
+            // Update analytics
+            updatePieChart(totalIncome, totalExpense);
+            updateCategoryBreakdown();
+        }
+
+        function updatePieChart(income, expense) {
+            const total = income + expense;
+            
+            // Update center value
+            document.getElementById('pieCenterValue').textContent = formatCurrency(total);
+            
+            // Update legend values
+            document.getElementById('legendIncome').textContent = formatCurrency(income);
+            document.getElementById('legendExpense').textContent = formatCurrency(expense);
+            
+            if (total > 0) {
+                const incomePercent = ((income / total) * 100).toFixed(1);
+                const expensePercent = ((expense / total) * 100).toFixed(1);
+                document.getElementById('legendIncomePercent').textContent = '(' + incomePercent + '%)';
+                document.getElementById('legendExpensePercent').textContent = '(' + expensePercent + '%)';
+            } else {
+                document.getElementById('legendIncomePercent').textContent = '(0%)';
+                document.getElementById('legendExpensePercent').textContent = '(0%)';
+            }
+        }
+
+        function updateCategoryBreakdown() {
+            const categoryTotals = {};
+            
+            transactions.forEach(t => {
+                const cat = t.category || 'Uncategorized';
+                if (!categoryTotals[cat]) {
+                    categoryTotals[cat] = 0;
+                }
+                categoryTotals[cat] += parseFloat(t.amount);
+            });
+
+            const sortedCategories = Object.entries(categoryTotals)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 5);
+
+            const container = document.getElementById('categoryList');
+            
+            if (sortedCategories.length === 0) {
+                container.innerHTML = '<div class="empty-state" style="padding: 40px 20px;"><div class="empty-state-icon">[$$]</div><div class="empty-state-text">No data yet</div></div>';
+                return;
+            }
+
+            const maxAmount = sortedCategories[0][1];
+
+            container.innerHTML = sortedCategories.map(([category, amount]) => {
+                const percentage = (amount / maxAmount) * 100;
+                const icon = category.substring(0, 2).toUpperCase();
+                
+                return '<div class="category-item">' +
+                    '<div class="category-icon">' + icon + '</div>' +
+                    '<div class="category-details">' +
+                        '<div class="category-name">' + category + '</div>' +
+                        '<div class="category-bar">' +
+                            '<div class="category-bar-fill" style="width: ' + percentage + '%"></div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="category-amount">' + formatCurrency(amount) + '</div>' +
+                '</div>';
+            }).join('');
         }
 
         function renderTransactions() {
