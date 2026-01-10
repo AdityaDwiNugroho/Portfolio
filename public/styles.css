@@ -949,6 +949,12 @@ a:hover {
     padding: 0 5px;
 }
 
+#calendar-month-year {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
 .calendar-nav-btn {
     background: transparent;
     border: 1px solid var(--accent);
