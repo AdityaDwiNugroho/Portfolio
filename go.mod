@@ -1,4 +1,4 @@
-module github.com/AdityaDwiNugroho/Adityaa
+module github.com/AdityaDwiNugroho/Portfolio
 
 go 1.21
 
