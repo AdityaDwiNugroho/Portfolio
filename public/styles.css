@@ -4,7 +4,7 @@
     --primary: #2e5c3e;
     --secondary: #8b7355;
     --accent: #d4af37;
-    --accent-2: #8b3a3a; /* Burgundy/wine red for sophistication */
+    --accent-2: #8b3a3a; 
     --bg-dark: #1a1a1a;
     --bg-mid: #2a2a2a;
     --bg-light: #f5f5dc;
@@ -1106,7 +1106,7 @@ a:hover {
     }
 
     .floating-stat {
-        position: relative; /* Override absolute positioning */
+        position: relative; 
         display: block;
         width: 100%;
         margin: 15px 0;
