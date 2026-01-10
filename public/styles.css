@@ -1093,6 +1093,35 @@ a:hover {
         display: none;
     }
 
+    /* Mobile Hero Layout Optimization (Issue #5) */
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .floating-stat {
+        position: relative; /* Override absolute positioning */
+        display: block;
+        width: 100%;
+        margin: 15px 0;
+        top: auto;
+        right: auto;
+        text-align: center;
+        z-index: 1;
+    }
+    
+    /* Reset specific positions */
+    .stat-1, .stat-2 {
+        top: auto;
+        right: auto;
+    }
+
     .section-editorial,
     .section-split {
         padding: 80px 0;
