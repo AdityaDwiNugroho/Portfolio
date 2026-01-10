@@ -904,7 +904,7 @@ a:hover {
 /* Diary Layout & Retro Calendar (Refined for Issue #6) */
 .diary-split-layout {
     display: grid;
-    grid-template-columns: 350px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: 60px;
     align-items: start;
     max-width: 1400px;
@@ -913,10 +913,10 @@ a:hover {
 
 .calendar-wrapper {
     position: sticky;
-    top: 100px;
+    top: 80px;
     background: #1a1a1a;
     border: 1px solid var(--border);
-    padding: 25px;
+    padding: 15px;
     box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
@@ -924,7 +924,7 @@ a:hover {
 .calendar-title {
     font-family: 'Press Start 2P', cursive;
     color: var(--accent);
-    font-size: 1.5em;
+    font-size: 1.0em;
     text-align: center;
     margin-bottom: 5px;
     letter-spacing: 2px;
@@ -933,8 +933,8 @@ a:hover {
 .calendar-subtitle {
     text-align: center;
     color: var(--text-muted);
-    font-size: 0.8em;
-    margin-bottom: 30px;
+    font-size: 0.7em;
+    margin-bottom: 20px;
     font-family: 'Space Mono', monospace;
 }
 
@@ -942,9 +942,9 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     font-family: 'Press Start 2P', cursive;
-    font-size: 0.9em;
+    font-size: 0.8em;
     color: var(--accent);
     padding: 0 5px;
 }
@@ -955,8 +955,8 @@ a:hover {
     color: var(--accent);
     cursor: pointer;
     font-family: inherit;
-    font-size: 0.7em;
-    padding: 8px 12px;
+    font-size: 0.6em;
+    padding: 4px 8px;
     text-transform: uppercase;
     transition: all 0.2s ease;
 }
@@ -989,7 +989,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     font-family: 'Press Start 2P', cursive;
-    font-size: 0.8em;
+    font-size: 0.7em;
     color: var(--text-muted);
     cursor: default;
     background: rgba(255, 255, 255, 0.03);
