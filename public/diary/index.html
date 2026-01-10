@@ -40,10 +40,13 @@
                 <!-- Sidebar: Retro Calendar -->
                 <aside id="diary-sidebar">
                     <div class="calendar-wrapper">
+                        <div class="calendar-title">DIARY CALENDAR</div>
+                        <div class="calendar-subtitle">Select a date to view your entries</div>
+                        
                         <div class="calendar-header">
-                            <button class="calendar-nav-btn" onclick="changeMonth(-1)"><</button>
+                            <button class="calendar-nav-btn" onclick="changeMonth(-1)">< PREV</button>
                             <span id="calendar-month-year">...</span>
-                            <button class="calendar-nav-btn" onclick="changeMonth(1)">></button>
+                            <button class="calendar-nav-btn" onclick="changeMonth(1)">NEXT ></button>
                         </div>
                         <div class="calendar-grid" id="calendar-grid">
                             <!-- JS Generated -->
@@ -185,7 +188,12 @@
             for (let i = 1; i <= daysInMonth; i++) {
                 const el = document.createElement('div');
                 el.className = 'calendar-day';
-                el.innerText = i;
+                // el.innerText = i; // Removed to allow complex content
+                
+                // Add Day Number
+                const dayNum = document.createElement('span');
+                dayNum.innerText = i;
+                el.appendChild(dayNum);
                 
                 // Check for entry
                 const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(i).padStart(2,'0')}`;
@@ -201,6 +209,10 @@
                 if (hasEntry) {
                     el.classList.add('has-entry');
                     el.onclick = () => filterByDate(i);
+                    // Add dot indicator
+                    const dot = document.createElement('span');
+                    dot.className = 'entry-dot';
+                    el.appendChild(dot);
                 }
 
                 grid.appendChild(el);

@@ -900,7 +900,171 @@ a:hover {
     border-bottom: 1px solid var(--accent);
     transform: translateX(5px);
 }
+   
+/* Diary Layout & Retro Calendar (Refined for Issue #6) */
+.diary-split-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 60px;
+    align-items: start;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
+.calendar-wrapper {
+    position: sticky;
+    top: 100px;
+    background: #1a1a1a;
+    border: 1px solid var(--border);
+    padding: 25px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Calendar Header */
+.calendar-title {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--accent);
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+.calendar-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8em;
+    margin-bottom: 30px;
+    font-family: 'Space Mono', monospace;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.9em;
+    color: var(--accent);
+    padding: 0 5px;
+}
+
+.calendar-nav-btn {
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.7em;
+    padding: 8px 12px;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+}
+
+.calendar-nav-btn:hover {
+    background: var(--accent);
+    color: var(--bg-dark);
+}
+
+/* Calendar Grid */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    text-align: center;
+}
+
+.calendar-day-label {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.6em;
+    color: var(--accent);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.calendar-day {
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8em;
+    color: var(--text-muted);
+    cursor: default;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+/* Days with Entries (Green Box + Dot) */
+.calendar-day.has-entry {
+    background: #2E563B; /* Retro Green */
+    color: #FFD700; /* Gold Text */
+    border: 1px solid #3d724f;
+    cursor: pointer;
+}
+
+.calendar-day.has-entry .entry-dot {
+    display: block;
+    width: 4px;
+    height: 4px;
+    background: #FFD700;
+    margin-top: 4px;
+    box-shadow: 0 0 4px #FFD700;
+}
+
+.calendar-day.has-entry:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+}
+
+/* Active Selected Day (Red Border) */
+.calendar-day.active {
+    border: 2px solid #ff4d4d !important; /* Red Border */
+    position: relative;
+    z-index: 2;
+}
+
+.calendar-day.empty {
+    background: transparent;
+    border: none;
+    pointer-events: none;
+}
+
+.filter-reset-btn {
+    display: block;
+    width: 100%;
+    margin-top: 25px;
+    padding: 12px;
+    background: transparent;
+    border: 1px dashed var(--text-muted);
+    color: var(--text-muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.filter-reset-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+@media (max-width: 1024px) {
+    .diary-split-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .calendar-wrapper {
+        position: static;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
 .loading-state {
     text-align: center;
     padding: 40px;
