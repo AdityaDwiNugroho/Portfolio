@@ -120,10 +120,33 @@ func DiaryEntries(w http.ResponseWriter, r *http.Request) {
 	if !isAuthenticated {
 		for i := range entries {
 			if entries[i].IsPrivate {
-				entries[i].Content = "This entry is private. Login to view."
+				// Format: Entry 009 [Private]
+				// Use ID to generate the number
+				entries[i].Title = "Entry " + padLeft(entries[i].ID, 3) + " [Private]"
+				entries[i].Content = "Login to unlock"
 			}
 		}
 	}
 	
 	json.NewEncoder(w).Encode(entries)
+}
+
+func padLeft(num int, width int) string {
+	s := string(rune('0' + num%10))
+	num /= 10
+	for width > 1 {
+		width--
+		if num > 0 {
+			s = string(rune('0' + num%10)) + s
+			num /= 10
+		} else {
+			s = "0" + s
+		}
+	}
+	// If number is still larger than width, prepend the rest
+	for num > 0 {
+		s = string(rune('0' + num%10)) + s
+		num /= 10
+	}
+	return s
 }
